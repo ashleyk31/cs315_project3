@@ -3,7 +3,7 @@ import pandas as pd
 import numpy as np
 
 # Cleaning accountInformation.csv
-accInfo = pd.read_csv('accounts/accInfoScraped.csv')
+accInfo = pd.read_csv('accountInfo/accInfoScraped.csv')
 
 # Remove newline characters from all columns
 accInfo = accInfo.replace('\n', ' ', regex=True)
@@ -27,7 +27,7 @@ accInfo['author_likecounts'] = accInfo['author_likes'].apply(str_to_int)
 accInfo = accInfo[["author_username","author_name","author_bio",
                    "author_followercount","author_likecounts"]]
 
-accInfo.to_csv('accounts/accInfo.csv', index=False)
+accInfo.to_csv('accountInfo/accInfo.csv', index=False)
 
 # Merging PykTok files together
 directory = "pyktok/results"
